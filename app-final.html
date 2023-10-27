@@ -1,0 +1,96 @@
+<input type="file" id="file" />
+
+<script>
+    const foo = {
+        foo: "bar"
+    }
+
+    console.log(foo.foo)
+
+    const add = (x, y) => {
+        return x + y
+    }
+
+    const subtract = (x, y) => {
+        return x - y
+    }
+
+    const multiply = (x, y) => {
+        return x * y
+    }
+
+    const divide = (x, y) => {
+        return x / y
+    }
+
+    const fizzbuzz = (x) => {
+        if (x % 3 === 0 && x % 5 === 0) {
+            return "fizzbuzz"
+        } else if (x % 3 === 0) {
+            return "fizz"
+        } else if (x % 5 === 0) {
+            return "buzz"
+        } else {
+            return x
+        }
+    }
+    
+    // function that downloads a file
+    const download = (file) => {
+        // create an object url
+        const url = URL.createObjectURL(file)
+
+        // create a link element
+        const link = document.createElement('a')
+
+        // set the link url
+        link.href = url
+
+        // set the link text
+        link.download = file.name
+
+        // add the link to the document
+        document.body.appendChild(link)
+
+        // click the link
+        link.click()
+
+        // remove the link
+        document.body.removeChild(link)
+
+        // free the url
+        URL.revokeObjectURL(url)
+
+        // remove the file
+        file.remove()
+
+        // return true
+        return true
+    }
+
+    // on file input, download the file
+    document.getElementById('file').addEventListener('change', () => {
+        const file = document.getElementById('file').files[0]
+        download(file)
+    })
+
+
+    // connect 4 game in the chrome dev console
+    const rows = 6
+    const cols = 7
+    const board = []
+
+    // reset the game board to all '-' characters
+    const fillBoard = () => {
+
+    }
+
+    // turn the board into a string and log it
+    const printBoard = () => {}
+
+    // check if a given column is full
+    const isColumnFull = (column) => {}
+
+    // add the chip character to the specified column, on the bottommost available row
+    const drop = (col, chip) => {}
+</script>
